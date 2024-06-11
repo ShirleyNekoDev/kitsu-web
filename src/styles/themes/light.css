@@ -1,13 +1,12 @@
 /* stylelint-disable scale-unlimited/declaration-strict-value */
 
-:root[data-theme='light'],
-.theme-light {
+:--theme-light {
   /* Page */
   --page-background: var(--grey-1);
   --page-text-color: var(--grey-7);
   --page-link-color: var(--red-4);
   --page-content-background: var(--white);
-  --focus-outline: 3px solid var(--blue-2);
+  --focus-outline: 3px solid var(--blue-1);
 
   /* Cards */
   --card-background: var(--white);
@@ -50,39 +49,36 @@
   --input-invalid-border: 1px solid var(--red-4);
 
   /* Buttons */
-  --button-primary-background: var(--green-4);
-  --button-primary-text-color: var(--white);
-  --button-primary-border: none;
-  --button-primary-hover-background: var(--green-5);
-  --button-primary-hover-text-color: var(--white);
-  --button-primary-hover-border: none;
-  --button-primary-active-background: var(--green-6);
-  --button-primary-active-text-color: var(--white);
-  --button-primary-active-border: none;
+  --button-disabled-solid-bg: var(--grey-3);
+  --button-disabled-outline-color: var(--grey-3);
+  --button-disabled-borderless-fg: var(--grey-3);
 
-  --button-inverted-background: var(--white);
-  --button-inverted-text-color: var(--kitsu-purple-6);
-  --button-inverted-border: none;
-  --button-inverted-hover-background: color-mod(white shade(15%));
-  --button-inverted-hover-text-color: var(--kitsu-purple-6);
-  --button-inverted-hover-border: none;
-  --button-inverted-active-background: color-mod(white shade(25%));
-  --button-inverted-active-text-color: var(--kitsu-purple-6);
-  --button-inverted-active-border: none;
-
-  --button-outline-background: transparent;
-  --button-outline-text-color: var(--kitsu-purple-2);
-  --button-outline-border: 1px solid var(--kitsu-purple-2);
-  --button-outline-hover-background: transparent;
-  --button-outline-hover-text-color: var(--kitsu-purple-3);
-  --button-outline-hover-border: 1px solid var(--kitsu-purple-3);
-  --button-outline-active-background: transparent;
-  --button-outline-active-text-color: var(--kitsu-purple-4);
-  --button-outline-active-border: 1px solid var(--kitsu-purple-4);
-
-  --button-disabled-background: var(--grey-3);
-  --button-disabled-text-color: var(--white);
-  --button-disabled-border: none;
+  /* Tags */
+  --tag-fg: var(--white);
+  --tag-red-bg: var(--red-3);
+  --tag-red-hover-bg: var(--red-4);
+  --tag-red-action-bg: var(--red-5);
+  --tag-pink-bg: var(--pink-3);
+  --tag-pink-hover-bg: var(--pink-4);
+  --tag-pink-action-bg: var(--pink-5);
+  --tag-yellow-bg: var(--yellow-3);
+  --tag-yellow-hover-bg: var(--yellow-4);
+  --tag-yellow-action-bg: var(--yellow-5);
+  --tag-green-bg: var(--green-3);
+  --tag-green-hover-bg: var(--green-4);
+  --tag-green-action-bg: var(--green-5);
+  --tag-blue-bg: var(--blue-3);
+  --tag-blue-hover-bg: var(--blue-4);
+  --tag-blue-action-bg: var(--blue-5);
+  --tag-purple-bg: var(--purple-3);
+  --tag-purple-hover-bg: var(--purple-4);
+  --tag-purple-action-bg: var(--purple-5);
+  --tag-kitsu-purple-bg: var(--kitsu-purple-4);
+  --tag-kitsu-purple-hover-bg: var(--kitsu-purple-5);
+  --tag-kitsu-purple-action-bg: var(--kitsu-purple-6);
+  --tag-grey-bg: var(--grey-4);
+  --tag-grey-hover-bg: var(--grey-5);
+  --tag-grey-action-bg: var(--grey-6);
 
   /* Tabs */
   --tab-text-color: var(--grey-2);
@@ -106,19 +102,23 @@
   /* Toasts */
   --toast-background: var(--grey-2);
   --toast-border: 1px solid var(--grey-3);
-  --toast-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --toast-shadow: 0 2px 6px rgb(0 0 0 / 25%);
   --toast-close-color: var(--kitsu-purple-3);
 
   /* Group Box */
-  --group-box-border: 1px solid var(--kitsu-purple-2);
+  --group-box-border: 1px solid var(--grey-3);
   --group-box-title-color: var(--kitsu-purple-3);
+  --group-box-details-button-text-color: var(--grey-5);
 
   /* Banner Images */
-  --banner-image-fade: rgba(0, 0, 0, 0.5);
+  --banner-image-fade: rgb(0 0 0 / 50%);
 
   /* Section Headers */
   --section-header-text-color: var(--kitsu-purple-3);
   --section-header-link-color: var(--kitsu-purple-2);
+
+  /* Reaction Cards */
+  --reaction-byline-color: var(--grey-4);
 
   /***** Non-Color Stuff *****/
   --radius-small: 3px;

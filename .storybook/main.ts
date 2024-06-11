@@ -1,13 +1,9 @@
 import type { StorybookConfig } from '@storybook/types';
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/docs/**/*.mdx',
-    '../src/**/*.stories.mdx',
-    '../src/**/*.stories.tsx',
-  ],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
   addons: [
-    'storybook-addon-themes',
+    '@kitsu-io-forks/storybook-addon-themes',
     '@storybook/addon-links',
     {
       name: '@storybook/addon-essentials',
@@ -17,11 +13,15 @@ const config: StorybookConfig = {
     },
     'storybook-addon-designs',
     '@storybook/addon-a11y',
+    '@etchteam/storybook-addon-status',
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+  docs: {
+    docsMode: true,
+    autodocs: true,
+  },
 };
-
 export default config;

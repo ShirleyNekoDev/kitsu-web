@@ -1,6 +1,6 @@
+import * as Docs from '@storybook/blocks';
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
-import { withThemes } from 'storybook-addon-themes';
 
 import { ToasterContextProvider } from 'app/components/Toaster/Context';
 import IntlProvider from 'app/contexts/IntlContext';
@@ -48,7 +48,13 @@ export const globalTypes = {
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Colors', 'Typography'],
+    },
+  },
   controls: {
+    expanded: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
@@ -57,20 +63,70 @@ export const parameters = {
   themes: {
     clearable: false,
     default: 'light',
-    list: [
-      { name: 'light', class: 'theme-light', color: '#f7f7f7' },
-      { name: 'dark', class: 'theme-dark', color: '#443443' },
-      { name: 'oled', class: 'theme-oled', color: '#000000' },
+    target: '.docs-story, :root',
+    property: 'data-theme',
+    options: [
+      { name: 'light', value: 'light', color: '#f7f7f7' },
+      { name: 'dark', value: 'dark', color: '#443443' },
+      { name: 'oled', value: 'oled', color: '#000000' },
     ],
   },
-  docs: { theme: KitsuTheme },
+  status: {
+    statuses: {
+      completed: {
+        background: '#068d75',
+        color: '#ffffff',
+        label: 'Completed',
+        description:
+          'This component is ready for usage throughout the Kitsu codebase. It is thoroughly documented, tested, and supported.',
+      },
+      inDevelopment: {
+        background: '#cd8c2f',
+        color: '#ffffff',
+        label: 'In Development',
+        description:
+          'This component is in development and may change without warning. The documentation may be incomplete or incorrect.',
+      },
+      deprecated: {
+        background: '#b33f39',
+        color: '#ffffff',
+        label: 'Deprecated',
+        description:
+          'This component is no longer supported, and will be removed in future.',
+      },
+    },
+  },
+  docs: {
+    theme: KitsuTheme,
+    toc: {
+      headingSelector: 'h2, h3',
+    },
+    argTypes: {
+      sort: 'requiredFirst',
+    },
+    controls: {
+      sort: 'requiredFirst',
+    },
+    source: {
+      language: 'tsx',
+    },
+    page: () => (
+      <>
+        <Docs.Title />
+        <Docs.Subtitle />
+        <Docs.Description />
+        <Docs.Primary />
+        <Docs.Controls />
+        <Docs.Stories includePrimary={false} />
+      </>
+    ),
+  },
 };
 
 export const decorators = [
-  withThemes,
   (
     Story: React.ComponentType,
-    { globals: { locale } }: { globals: { locale: string } }
+    { globals: { locale } }: { globals: { locale: string } },
   ) => (
     <React.StrictMode>
       <React.Suspense fallback={null}>

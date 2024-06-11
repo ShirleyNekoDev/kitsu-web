@@ -102,7 +102,7 @@ export const LoadProfileMenuDocument = {
 } as unknown as DocumentNode;
 
 export function useLoadProfileMenuQuery(
-  options?: Omit<Urql.UseQueryArgs<LoadProfileMenuQueryVariables>, 'query'>
+  options?: Omit<Urql.UseQueryArgs<LoadProfileMenuQueryVariables>, 'query'>,
 ) {
   return Urql.useQuery<LoadProfileMenuQuery, LoadProfileMenuQueryVariables>({
     query: LoadProfileMenuDocument,

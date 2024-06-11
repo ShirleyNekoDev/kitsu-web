@@ -1,13 +1,16 @@
 /// <reference types="vitest" />
 
 import path from 'path';
-import { defineConfig, BuildOptions, splitVendorChunkPlugin } from 'vite';
+
 import react from '@vitejs/plugin-react';
-import svgr from 'vite-plugin-svgr';
 import {
   formatjsCompilePlugin,
   formatjsTransformPlugin,
 } from 'rollup-plugin-formatjs';
+import { BuildOptions, defineConfig, splitVendorChunkPlugin } from 'vite';
+import svgr from 'vite-plugin-svgr';
+
+import { imageMetadataPlugin } from './rollup/imageMetadataPlugin';
 
 let build: BuildOptions;
 switch (process.env.BUILD_TARGET) {
@@ -48,7 +51,7 @@ switch (process.env.BUILD_TARGET) {
     break;
   default:
     throw new Error(
-      'Unknown build target. Please set BUILD_TARGET to one of: library, client, server'
+      'Unknown build target. Please set BUILD_TARGET to one of: library, client, server',
     );
 }
 
@@ -63,6 +66,7 @@ export default defineConfig(({ mode }) => ({
     exclude: ['cypress', 'node_modules', 'dist', '.git', '.cache'],
     environment: 'happy-dom',
     coverage: {
+      provider: 'v8',
       reporter: ['lcovonly', 'html', 'text-summary'],
       all: true,
       src: ['src'],
@@ -77,9 +81,8 @@ export default defineConfig(({ mode }) => ({
       ast: true,
     }),
     ...(process.env.NODE_ENV !== 'test' ? [react()] : []),
+    imageMetadataPlugin(),
     svgr(),
-    // TODO: set up SRI plugin correctly
-    //sri(),
   ],
   esbuild: {
     // We distribute the comments as part of the github source code instead of in our bundle.
