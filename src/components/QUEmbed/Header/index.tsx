@@ -2,7 +2,9 @@ import React, { Suspense } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 
-import { ReactComponent as Logo } from 'app/assets/logo.svg';
+// import Logo from 'app/assets/logo.svg';
+
+// import { ReactComponent as Logo } from 'app/assets/logo.svg';
 import { useSession } from 'app/contexts/SessionContext';
 import Spinner from 'app/components/feedback/Spinner';
 
@@ -19,7 +21,7 @@ export default function Header(): JSX.Element {
       <header>
         <nav>
           <NavLink to="/" className={styles.logo}>
-            <Logo />
+            {/* <Logo /> */}
           </NavLink>
           {session ? (
             <>

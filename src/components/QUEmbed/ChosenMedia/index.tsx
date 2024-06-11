@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import BannerImage from 'app/components/BannerImage';
-import { ImageSource } from 'app/components/content/Image';
+import BannerImage from 'app/components/content/BannerImage';
+import ImageSource from 'app/components/content/Image';
 import {
   LibraryEntryUpdateProgressByMediaInput,
   PostCreateInput,

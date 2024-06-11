@@ -2,12 +2,13 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import ForgotPasswordModal from './pages/Auth/ForgotPassword';
-import AuthModal from './pages/Auth/Modal';
 // import 'app/styles/index.css';
 
 // import NotFoundPage from './pages/Errors/NotFound';
+import AuthLayout from './pages/Auth/Layout';
 import SignInModal from './pages/Auth/SignIn';
 import SignUpModal from './pages/Auth/SignUp';
+
 import HomePage from './pages/QUEmbed/Home';
 import MediaPage from './pages/QUEmbed/MediaPage';
 import SearchPage from './pages/QUEmbed/SearchPage';
@@ -17,7 +18,7 @@ export default function QURouter() {
   return (
     <>
       <Routes>
-        <Route path="auth" element={<AuthModal displayMode="page" />}>
+      <Route path="auth" element={<AuthLayout displayMode="modal" />}>
           <Route path="sign-in" element={<SignInModal />} />
           <Route path="sign-up" element={<SignUpModal />} />
           <Route path="forgot-password" element={<ForgotPasswordModal />} />
